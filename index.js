@@ -1,5 +1,7 @@
 const audio = document.querySelector('.audio');
 
+const confirm = window.confirm('Продолжить просмотр?');
+
 const playingTime = () => {
 	localStorage.setItem('time', audio.currentTime);
 };
@@ -9,4 +11,5 @@ const setTime = () => {
 };
 
 audio.addEventListener('timeupdate', playingTime);
-document.addEventListener('DOMContentLoaded', setTime);
+
+if (confirm) document.addEventListener('DOMContentLoaded', setTime);
